@@ -206,7 +206,7 @@ h1, h2, h3, h4, .logo, .footer-huge-text {
 
 .marquee {
     display: flex;
-    animation: scroll 60s linear infinite;
+    animation: scroll 30s linear infinite;
 }
 
 .marquee span {
