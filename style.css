@@ -23,6 +23,8 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Smoothness for Apple Devices */
+    text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, .logo, .footer-huge-text {
@@ -392,11 +394,15 @@ footer { padding: 10rem 0 4rem; border-top: 1px solid var(--glass-border); }
 
 /* Animations */
 .fade-up { opacity: 0; transform: translateY(40px); }
-.reveal-img { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%); }
+.reveal-img { 
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+    will-change: clip-path;
+}
 .hero-reveal { 
     opacity: 0; 
     transform: scale(1.1);
     transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.5s ease;
+    will-change: transform, opacity; /* Hardware acceleration */
 }
 
 .hero-reveal.active {
