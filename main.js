@@ -257,5 +257,3 @@ document.addEventListener('keydown', (e) => {
         });
     }
 });
-
-});
