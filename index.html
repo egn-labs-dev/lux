@@ -101,6 +101,8 @@
     <meta property="og:description" content="Professional residential refurbishment and maintenance contractor in London. High-end internal renovations for B2B clients.">
     <meta property="og:image" content="assets/lux_hero.png">
 
+    <link rel="preload" as="image" href="assets/lux_hero.png">
+    
     <link rel="stylesheet" href="style.css">
     
     <!-- Fonts: Clash Display (Modern 2026 Vibe) and Inter -->
@@ -141,6 +143,8 @@
 
     <header class="hero">
         <div class="hero-image-container hero-reveal">
+            <!-- Background Image Fallback -->
+            <div class="hero-fallback-img" style="background-image: url('assets/lux_hero.png');"></div>
             <video class="hero-video" autoplay loop muted playsinline poster="assets/lux_hero.png">
                 <source src="assets/hero_video.mp4" type="video/mp4">
             </video>

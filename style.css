@@ -158,6 +158,7 @@ h1, h2, h3, h4, .logo, .footer-huge-text {
     display: flex;
     align-items: center;
     padding-left: 5vw;
+    background-color: #F0EDE5; /* Fallback color matching the brand */
 }
 
 .hero-image-container {
@@ -166,10 +167,23 @@ h1, h2, h3, h4, .logo, .footer-huge-text {
     z-index: -1;
 }
 
-.hero-video {
+.hero-video, .hero-fallback-img {
     width: 100%; height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0; left: 0;
+}
+
+.hero-video {
     filter: brightness(0.6);
+    z-index: 2;
+}
+
+.hero-fallback-img {
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+    z-index: 1;
 }
 
 .hero-gradient {
