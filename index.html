@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>London Lux Refurbishment & Maintenance | Professional London Contractor</title>
+    <meta name="description" content="London Lux Refurbishment & Maintenance is the leading residential contractor in London for B2B clients. We provide professional refurbishment, maintenance, and finishing for landlords, developers, and property managers. Fully compliant with RAMS and Insurance.">
+    <meta name="keywords" content="London refurbishment, property maintenance London, residential contractor London, rental property refresh, drylining London, kitchen renovation London">
+    
+    <!-- AI & LLM Optimization (Semantic Context) -->
+    <meta name="author" content="London Lux Decor Ltd">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    
+    <!-- Structured Data (JSON-LD) for AI Agents -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "London Lux Refurbishment & Maintenance",
+      "image": "https://londonluxdecor.co.uk/assets/lux_hero.png",
+      "@id": "https://londonluxdecor.co.uk/",
+      "url": "https://londonluxdecor.co.uk/",
+      "telephone": "+447599847337",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "London",
+        "addressLocality": "London",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 51.5074,
+        "longitude": -0.1278
+      },
+      "description": "Professional residential refurbishment and maintenance contractor in London, specializing in B2B property services, rental refreshes, and full renovations.",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://wa.me/447599847337"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Residential Refurbishment & Maintenance",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "London Lux Refurbishment & Maintenance"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "London"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Refurbishment Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Rental Property Refresh"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Full Internal Renovation"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Property Maintenance & Snagging"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://londonluxdecor.co.uk/">
+    <meta property="og:title" content="London Lux Refurbishment & Maintenance">
+    <meta property="og:description" content="Professional residential refurbishment and maintenance contractor in London. High-end internal renovations for B2B clients.">
+    <meta property="og:image" content="assets/lux_hero.png">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Fonts: Clash Display (Modern 2026 Vibe) and Inter -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- GSAP & Lenis Smooth Scroll -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js" defer></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <nav class="navbar glass">
+        <div class="logo">London Lux <span class="accent-text">Refurbishment & Maintenance</span></div>
+        <div class="nav-links">
+            <a href="#who-we-help">Who We Help</a>
+            <a href="#services">Services</a>
+            <a href="#compliance">Compliance</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#contact-form" class="btn-primary">Get a Proposal</a>
+        </div>
+        <div class="menu-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" role="button" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <a href="#who-we-help" aria-label="Navigate to Who We Help">Who We Help</a>
+        <a href="#services" aria-label="Navigate to Services">Services</a>
+        <a href="#compliance" aria-label="Navigate to Compliance">Compliance</a>
+        <a href="#portfolio" aria-label="Navigate to Projects">Projects</a>
+        <a href="#contact-form" class="btn-primary" aria-label="Request a Proposal">Get a Proposal</a>
+    </div>
+
+    <header class="hero">
+        <div class="hero-image-container hero-reveal">
+            <video class="hero-video" autoplay loop muted playsinline poster="assets/lux_hero.png">
+                <source src="assets/hero_video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-gradient"></div>
+            <div class="noise-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="split-text">Residential Refurbishment<br>& Maintenance Contractor in London</h1>
+            <p class="fade-up delay-1">We help landlords, homeowners, developers and property managers deliver clean, organised refurbishment works — from rental refreshes to full internal renovations.</p>
+            <div class="hero-btns fade-up delay-2" style="margin-top: 2rem; display: flex; gap: 1rem;">
+                <a href="#contact-form" class="btn-primary" style="padding: 1rem 2rem;">Request an Estimate</a>
+                <a href="#portfolio" class="btn-outline" style="padding: 1rem 2rem; border: 1px solid var(--glass-border); border-radius: 100px; text-decoration: none; color: white; font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">View Cases</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>FULL REFURBISHMENT • MAINTENANCE • PAINTING • KITCHENS • BATHROOMS • FLOORING • CARPENTRY • DRYLINING • </span>
+            <span>FULL REFURBISHMENT • MAINTENANCE • PAINTING • KITCHENS • BATHROOMS • FLOORING • CARPENTRY • DRYLINING • </span>
+        </div>
+    </div>
+
+    <!-- WHO WE HELP SECTION -->
+    <section id="who-we-help" class="who-we-help container">
+        <div class="section-header fade-up">
+            <h2>Who We Help.</h2>
+        </div>
+        <div class="bento-grid">
+            <div class="bento-card glass-card who-card fade-up" onclick="openModal('who-landlords')" style="cursor: pointer;">
+                <img src="assets/who_landlords.png" alt="London Landlord Property Refresh" class="service-img" loading="lazy">
+                <div class="service-info">
+                    <h3>Landlords</h3>
+                    <p>Fast-turnaround rental refreshes to minimize void periods and maximize property value.</p>
+                    <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Learn More →</span>
+                </div>
+            </div>
+            <div class="bento-card glass-card who-card fade-up delay-1" onclick="openModal('who-managers')" style="cursor: pointer;">
+                <img src="assets/who_managers.png" alt="London Property Manager Maintenance" class="service-img" loading="lazy">
+                <div class="service-info">
+                    <h3>Property Managers</h3>
+                    <p>Reliable maintenance and snagging services with full compliance (RAMS & Insurance).</p>
+                    <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Learn More →</span>
+                </div>
+            </div>
+            <div class="bento-card glass-card who-card fade-up delay-2" onclick="openModal('who-developers')" style="cursor: pointer;">
+                <img src="assets/lux_drylining.png" alt="London Residential Developer Finishing" class="service-img" loading="lazy">
+                <div class="service-info">
+                    <h3>Developers</h3>
+                    <p>On-time, within-budget finishing and drylining for residential developments across London.</p>
+                    <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Learn More →</span>
+                </div>
+            </div>
+            <div class="bento-card glass-card who-card fade-up delay-3 col-span-2" onclick="openModal('who-homeowners')" style="cursor: pointer;">
+                <img src="assets/lux_hero.png" alt="London Luxury Home Refurbishment" class="service-img" loading="lazy">
+                <div class="service-info">
+                    <h3>Architects & Homeowners</h3>
+                    <p>High-end internal renovations delivered with surgical precision and organized project management.</p>
+                    <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Learn More →</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPLIANCE SECTION -->
+    <section id="compliance" class="compliance-section container fade-up">
+        <div class="glass-card compliance-inner" style="padding: 4rem;">
+            <h2>Contractor Compliance.</h2>
+            <div class="compliance-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="compliance-item">
+                    <span class="icon" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;">✓</span>
+                    <h4>Public Liability</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Fully insured up to £5M.</p>
+                </div>
+                <div class="compliance-item">
+                    <span class="icon" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;">✓</span>
+                    <h4>RAMS Provided</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Full safety documentation.</p>
+                </div>
+                <div class="compliance-item">
+                    <span class="icon" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;">✓</span>
+                    <h4>Waste Removal</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Licensed disposal services.</p>
+                </div>
+                <div class="compliance-item">
+                    <span class="icon" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;">✓</span>
+                    <h4>Variation Control</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Clear reporting & approvals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES BENTO -->
+    <section id="services" class="bento-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Our Expertise.</h2>
+            </div>
+            <div class="bento-grid">
+                <div class="bento-card glass-card fade-up" onclick="openModal('exp-refurb')" style="cursor: pointer;">
+                    <img src="assets/lux_hero.png" alt="Refurbishment" class="service-img">
+                    <div class="service-info">
+                        <div class="service-icon">01</div>
+                        <h3>Full Refurbishment</h3>
+                        <p>End-to-end residential renovations and internal restructuring.</p>
+                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                    </div>
+                </div>
+                <div class="bento-card glass-card fade-up delay-1" onclick="openModal('exp-kitchen-bath')" style="cursor: pointer;">
+                    <img src="assets/lux_kitchen_bath.png" alt="Kitchens" class="service-img">
+                    <div class="service-info">
+                        <div class="service-icon">02</div>
+                        <h3>Kitchens & Bathrooms</h3>
+                        <p>Modern installations delivered with clean, professional plumbing and tiling.</p>
+                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                    </div>
+                </div>
+                <div class="bento-card glass-card fade-up delay-2" onclick="openModal('exp-painting')" style="cursor: pointer;">
+                    <img src="assets/lux_painting_decorating.png" alt="Painting" class="service-img">
+                    <div class="service-info">
+                        <div class="service-icon">03</div>
+                        <h3>Painting & Decorating</h3>
+                        <p>Flawless finishes for high-end properties and rental refreshes.</p>
+                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                    </div>
+                </div>
+                <div class="bento-card glass-card fade-up delay-3" onclick="openModal('exp-maintenance')" style="cursor: pointer;">
+                    <img src="assets/lux_maintenance.png" alt="Maintenance" class="service-img">
+                    <div class="service-info">
+                        <div class="service-icon">04</div>
+                        <h3>Maintenance & Snagging</h3>
+                        <p>Ongoing property care and rapid fix-ups between tenancies.</p>
+                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                    </div>
+                </div>
+                <div class="bento-card glass-card fade-up delay-4" onclick="openModal('exp-drylining')" style="cursor: pointer;">
+                    <img src="assets/lux_drylining.png" alt="Drylining" class="service-img">
+                    <div class="service-info">
+                        <div class="service-icon">05</div>
+                        <h3>Drylining & Carpentry</h3>
+                        <p>Surgical precision in wall construction and bespoke woodwork.</p>
+                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                    </div>
+                </div>
+                <div class="bento-card glass-card fade-up delay-5" onclick="openModal('exp-flooring')" style="cursor: pointer;">
+                    <img src="assets/lux_flooring_service.png" alt="Flooring" class="service-img">
+                    <div class="service-info">
+                        <div class="service-icon">06</div>
+                        <h3>Flooring</h3>
+                        <p>Hardwood, LVT, and premium tiling installations.</p>
+                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SLIDER -->
+    <section id="transformation" class="transformation-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Process & Protection.</h2>
+            </div>
+            <div class="ba-slider-container reveal-img">
+                <div class="ba-slider">
+                    <img src="assets/lux_hero.png" alt="Finished" class="ba-image after">
+                    <div class="ba-image-wrapper">
+                        <img src="assets/lux_protection.png" alt="In Progress" class="ba-image before">
+                    </div>
+                    <div class="ba-handle">
+                        <div class="ba-handle-line"></div>
+                        <div class="ba-handle-circle">
+                            <span class="ba-arrow left"></span>
+                            <span class="ba-arrow right"></span>
+                        </div>
+                    </div>
+                    <div class="glass-label before-tag">IN PROGRESS</div>
+                    <div class="glass-label after-tag">FINISHED</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES / PORTFOLIO -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2>Case Studies.</h2>
+            </div>
+            <div class="portfolio-bento">
+                <div class="p-item tall reveal-img" onclick="openModal('case-1')" style="cursor: pointer;">
+                    <img src="assets/lux_covent.png" alt="2-Bed Rental Refresh in Covent Garden, WC2 - London Lux Refurbishment" loading="lazy">
+                    <div class="p-overlay glass">
+                        <div>
+                            <h3>2-Bed Rental Refresh</h3>
+                            <p>Covent Garden, WC2</p>
+                        </div>
+                        <span class="p-tag">5 DAYS</span>
+                    </div>
+                </div>
+                <div class="p-item wide reveal-img" onclick="openModal('case-2')" style="cursor: pointer;">
+                    <img src="assets/lux_drylining.png" alt="Internal Drylining & Refurbishment in Vauxhall, SW8 - London Lux Refurbishment" loading="lazy">
+                    <div class="p-overlay glass">
+                        <div>
+                            <h3>Internal Drylining & Refurb</h3>
+                            <p>Vauxhall, SW8</p>
+                        </div>
+                        <span class="p-tag">3 WEEKS</span>
+                    </div>
+                </div>
+                <div class="p-item reveal-img" onclick="openModal('case-3')" style="cursor: pointer;">
+                    <img src="assets/lux_chelsea.png" alt="Kitchen & Bathroom Upgrade in Chelsea, SW3 - London Lux Refurbishment" loading="lazy">
+                    <div class="p-overlay glass">
+                        <div>
+                            <h3>Kitchen & Bath Upgrade</h3>
+                            <p>Chelsea, SW3</p>
+                        </div>
+                        <span class="p-tag">4 WEEKS</span>
+                    </div>
+                </div>
+                <div class="p-item wide reveal-img" onclick="openModal('case-4')" style="cursor: pointer;">
+                    <img src="assets/lux_mayfair.png" alt="Full Residential Refurbishment in Mayfair, W1 - London Lux Refurbishment" loading="lazy">
+                    <div class="p-overlay glass">
+                        <div>
+                            <h3>Full Residential Refurbishment</h3>
+                            <p>Mayfair, W1</p>
+                        </div>
+                        <span class="p-tag">12 WEEKS</span>
+                    </div>
+                </div>
+                <div class="p-item reveal-img" onclick="openModal('case-5')" style="cursor: pointer;">
+                    <img src="assets/lux_city.png" alt="Commercial Painting in City of London, EC2 - London Lux Refurbishment" loading="lazy">
+                    <div class="p-overlay glass">
+                        <div>
+                            <h3>Commercial Painting</h3>
+                            <p>City of London, EC2</p>
+                        </div>
+                        <span class="p-tag">2 WEEKS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUALIFIED CONTACT FORM -->
+    <section id="contact-form" class="contact-section container">
+        <div class="glass-card lead-form-container fade-up">
+            <div class="form-header">
+                <h2>Request a Proposal.</h2>
+                <p>Provide your project details for a qualified response within 24 hours.</p>
+            </div>
+            <form class="lead-filter-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john@example.com" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Project Postcode</label>
+                        <input type="text" placeholder="SW1A 1AA" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Estimated Budget</label>
+                        <select required>
+                            <option value="">Select Budget...</option>
+                            <option value="under-2k">Under £2,000</option>
+                            <option value="2k-30k">£2,000 – £30,000</option>
+                            <option value="over-30k">£30,000+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea placeholder="Describe the scope of work..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Submit for Review</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <a href="https://wa.me/447599847337" target="_blank" rel="noopener noreferrer" class="footer-huge-text hover-target">LET'S TALK.</a>
+            <div class="footer-grid">
+                <div>
+                    <h4>Contact</h4>
+                    <p><a href="tel:+447599847337" class="footer-link">+44 75 9984 7337</a></p>
+                    <p><a href="mailto:kornii@londonluxdecor.co.uk" class="footer-link">kornii@londonluxdecor.co.uk</a></p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <p>London Lux Decor Ltd</p>
+                    <p>Company No: 14705544</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeModals()"></div>
+
+    <div class="modal glass-card" id="case-1">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Rental Refresh</h2>
+        <p><strong>Location:</strong> Covent Garden, WC2</p>
+        <img src="assets/lux_covent.png" alt="Covent Garden" style="width:100%; border-radius: 12px; margin: 1rem 0;">
+        <p>Rapid property refresh delivered in 5 days to minimize void periods for the landlord.</p>
+    </div>
+
+    <div class="modal glass-card" id="case-2">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Internal Refurb</h2>
+        <p><strong>Location:</strong> Vauxhall, SW8</p>
+        <img src="assets/lux_drylining.png" alt="Vauxhall" style="width:100%; border-radius: 12px; margin: 1rem 0;">
+        <p>Full internal refurbishment including drylining and first-fix electrical/plumbing for a modern residential project.</p>
+    </div>
+
+    <div class="modal glass-card" id="case-3">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Kitchen & Bath Upgrade</h2>
+        <div class="modal-meta">
+            <span><strong>Location:</strong> Chelsea, SW3</span>
+            <span><strong>Timescale:</strong> 4 Weeks</span>
+        </div>
+        <img src="assets/lux_chelsea.png" alt="Chelsea" style="width:100%; border-radius: 12px; margin: 1rem 0;">
+        <p><strong>Scope:</strong> High-end renovation of primary kitchen and two bathrooms. Included bespoke cabinetry fitting, marble tiling, and installation of premium brass fixtures.</p>
+        <p><strong>Result:</strong> Seamless, luxury finish delivered on time for a private client.</p>
+    </div>
+
+    <div class="modal glass-card" id="case-4">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Full Residential Refurbishment</h2>
+        <div class="modal-meta">
+            <span><strong>Location:</strong> Mayfair, W1</span>
+            <span><strong>Timescale:</strong> 12 Weeks</span>
+        </div>
+        <img src="assets/lux_mayfair.png" alt="Mayfair" style="width:100%; border-radius: 12px; margin: 1rem 0;">
+        <p><strong>Scope:</strong> Complete top-to-bottom renovation of a heritage apartment. Structural reconfigurations, ornate cornicing restoration, and full integrated smart home installation.</p>
+        <p><strong>Result:</strong> Property value increased by approximately 25% post-completion.</p>
+    </div>
+
+    <div class="modal glass-card" id="case-5">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Commercial Painting</h2>
+        <div class="modal-meta">
+            <span><strong>Location:</strong> City of London, EC2</span>
+            <span><strong>Timescale:</strong> 2 Weeks</span>
+        </div>
+        <img src="assets/lux_city.png" alt="City of London" style="width:100%; border-radius: 12px; margin: 1rem 0;">
+        <p><strong>Scope:</strong> Night-shift painting and snagging for a 15,000 sq ft office space. Required strict coordination to ensure zero disruption to daytime business operations.</p>
+        <p><strong>Result:</strong> Flawless finish delivered within the tight handover window.</p>
+    </div>
+
+    <!-- WHO WE HELP MODALS -->
+    <div class="modal glass-card" id="who-landlords">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>For Landlords</h2>
+        <p style="margin: 1.5rem 0;">We understand that every day your property is vacant, you're losing money. Our <strong>Rental Property Refresh</strong> service is designed specifically for high-speed delivery without compromising on quality.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.8rem;">✓ Rapid end-of-tenancy painting</li>
+            <li style="margin-bottom: 0.8rem;">✓ Professional floor and carpet cleaning</li>
+            <li style="margin-bottom: 0.8rem;">✓ Minor repairs & snagging</li>
+            <li style="margin-bottom: 0.8rem;">✓ Gas & Electrical safety certificates</li>
+        </ul>
+        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Get a Fast Quote</a>
+    </div>
+
+    <div class="modal glass-card" id="who-managers">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>For Property Managers</h2>
+        <p style="margin: 1.5rem 0;">Tired of chasing unreliable contractors? We provide a seamless maintenance partnership with full administrative support.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.8rem;">✓ Full RAMS & Insurance documents provided</li>
+            <li style="margin-bottom: 0.8rem;">✓ Detailed photo-reporting of progress</li>
+            <li style="margin-bottom: 0.8rem;">✓ Planned preventive maintenance</li>
+            <li style="margin-bottom: 0.8rem;">✓ Out-of-hours service available</li>
+        </ul>
+        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Partner With Us</a>
+    </div>
+
+    <div class="modal glass-card" id="who-developers">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>For Developers</h2>
+        <p style="margin: 1.5rem 0;">We specialize in the critical "finishing phase" where quality and attention to detail determine the final property value.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.8rem;">✓ Specialist drylining & partition teams</li>
+            <li style="margin-bottom: 0.8rem;">✓ High-volume painting capacity</li>
+            <li style="margin-bottom: 0.8rem;">✓ Snagging liquidation specialists</li>
+            <li style="margin-bottom: 0.8rem;">✓ Strict adherence to site safety & deadlines</li>
+        </ul>
+        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Discuss Your Project</a>
+    </div>
+
+    <div class="modal glass-card" id="who-homeowners">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>For Homeowners</h2>
+        <p style="margin: 1.5rem 0;">Transforming your home should be an exciting process, not a stressful one. We bring commercial-grade organization to private renovations.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.8rem;">✓ Surgical protection of your furniture and floors</li>
+            <li style="margin-bottom: 0.8rem;">✓ Transparent, itemized quotes with no surprises</li>
+            <li style="margin-bottom: 0.8rem;">✓ Respectful, polite, and tidy site teams</li>
+            <li style="margin-bottom: 0.8rem;">✓ Direct communication with project managers</li>
+        </ul>
+        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Start Your Journey</a>
+    </div>
+
+    <!-- EXPERTISE MODALS -->
+    <div class="modal glass-card" id="exp-refurb">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Full Refurbishment</h2>
+        <p style="margin: 1.5rem 0;">Complete internal restructuring and renovation of residential properties.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.8rem;">✓ Structural internal wall removal & reconfiguration</li>
+            <li style="margin-bottom: 0.8rem;">✓ Full first & second fix electrical and plumbing</li>
+            <li style="margin-bottom: 0.8rem;">✓ Heating system installations and upgrades</li>
+            <li style="margin-bottom: 0.8rem;">✓ Integrated project management and timeline control</li>
+        </ul>
+        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
+    </div>
+
+    <div class="modal glass-card" id="exp-kitchen-bath">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Kitchens & Bathrooms</h2>
+        <p style="margin: 1.5rem 0;">Precision-led installations of kitchens and luxury bathrooms.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.8rem;">✓ Bespoke kitchen unit and appliance fitting</li>
+            <li style="margin-bottom: 0.8rem;">✓ High-end stone and ceramic tiling</li>
+            <li style="margin-bottom: 0.8rem;">✓ Wet room construction and waterproofing</li>
+            <li style="margin-bottom: 0.8rem;">✓ Professional lighting and fixture installation</li>
+        </ul>
+        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
+    </div>
+
+    <div class="modal glass-card" id="exp-painting">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Painting & Decorating</h2>
+        <p style="margin: 1.5rem 0;">Professional finish for high-end residential and commercial properties.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.8rem;">✓ Airless spray painting for ultra-smooth finishes</li>
+            <li style="margin-bottom: 0.8rem;">✓ Specialist wallpaper and wall-covering installation</li>
+            <li style="margin-bottom: 0.8rem;">✓ Woodwork and cabinetry painting</li>
+            <li style="margin-bottom: 0.8rem;">✓ Rapid rental property refreshes</li>
+        </ul>
+        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
+    </div>
+
+    <div class="modal glass-card" id="exp-maintenance">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Maintenance & Snagging</h2>
+        <p style="margin: 1.5rem 0;">Ensuring property excellence through ongoing care and rapid defect resolution.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.8rem;">✓ Rapid-response plumbing and carpentry repairs</li>
+            <li style="margin-bottom: 0.8rem;">✓ Snagging liquidation for new developments</li>
+            <li style="margin-bottom: 0.8rem;">✓ Planned maintenance for property portfolios</li>
+            <li style="margin-bottom: 0.8rem;">✓ End-of-tenancy remedial works</li>
+        </ul>
+        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
+    </div>
+
+    <div class="modal glass-card" id="exp-drylining">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Drylining & Carpentry</h2>
+        <p style="margin: 1.5rem 0;">Structural and decorative woodwork and wall construction.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.8rem;">✓ Metal and timber stud partition construction</li>
+            <li style="margin-bottom: 0.8rem;">✓ Specialist plasterboarding and acoustic lining</li>
+            <li style="margin-bottom: 0.8rem;">✓ Bespoke shelving, wardrobes, and cabinetry</li>
+            <li style="margin-bottom: 0.8rem;">✓ Skirting, architrave, and door installations</li>
+        </ul>
+        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
+    </div>
+
+    <div class="modal glass-card" id="exp-flooring">
+        <span class="close-btn" onclick="closeModals()">&times;</span>
+        <h2>Flooring</h2>
+        <p style="margin: 1.5rem 0;">Expert installation of all internal flooring systems.</p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.8rem;">✓ Solid and engineered hardwood installation</li>
+            <li style="margin-bottom: 0.8rem;">✓ LVT (Luxury Vinyl Tile) specialist fitting</li>
+            <li style="margin-bottom: 0.8rem;">✓ Sub-floor preparation and leveling</li>
+            <li style="margin-bottom: 0.8rem;">✓ Skirting board integration and finishing</li>
+        </ul>
+        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
+    </div>
+
+</body>
+</html>
