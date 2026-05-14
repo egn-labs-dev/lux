@@ -375,7 +375,10 @@ footer { padding: 10rem 0 4rem; border-top: 1px solid var(--glass-border); }
 /* Animations */
 .fade-up { opacity: 0; transform: translateY(40px); }
 .reveal-img { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%); }
-.hero-reveal { opacity: 0; }
+.hero-reveal { 
+    opacity: 0; 
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+}
 
 @media (max-width: 1024px) {
     .bento-grid { grid-template-columns: repeat(2, 1fr); }
