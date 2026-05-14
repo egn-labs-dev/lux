@@ -112,9 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     
-    // Parallax hero video
-    gsap.to('.hero-video', {
-        yPercent: 30,
+    // Parallax hero image
+    gsap.to('.hero-bg-img', {
+        yPercent: 20,
         ease: "none",
         scrollTrigger: {
             trigger: ".hero",
@@ -258,10 +258,4 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Handle missing video gracefully
-const heroVideo = document.querySelector('.hero-video');
-if (heroVideo) {
-    heroVideo.addEventListener('error', function() {
-        heroVideo.style.display = 'none';
-    }, true);
-}
+});
