@@ -69,10 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Hero Sequence: 1. Reveal Background, 2. Reveal Text
     tl.to('.hero-reveal', {
-        clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-        duration: 1.5,
+        scale: 1,
         opacity: 1,
-        ease: "power4.inOut"
+        duration: 1.8,
+        ease: "power3.out"
     })
     .fromTo('.split-text', 
         { y: 100, opacity: 0 },

@@ -384,7 +384,13 @@ footer { padding: 10rem 0 4rem; border-top: 1px solid var(--glass-border); }
 .reveal-img { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%); }
 .hero-reveal { 
     opacity: 0; 
-    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+    transform: scale(1.1);
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.5s ease;
+}
+
+.hero-reveal.active {
+    opacity: 1;
+    transform: scale(1);
 }
 
 @media (max-width: 1024px) {
