@@ -421,16 +421,25 @@ section { padding: 8rem 0; }
 .trust-bar {
     margin-top: 4rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 5vw;
+    gap: 2.5rem 4rem;
     opacity: 0.4;
     filter: grayscale(1);
     transition: opacity 0.3s;
 }
 
 .trust-bar:hover { opacity: 0.8; }
-.trust-logo { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; }
+.trust-logo { font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; text-align: center; }
+
+@media (max-width: 768px) {
+    .trust-bar {
+        gap: 1.5rem 2.5rem;
+        margin-top: 3rem;
+    }
+    .trust-logo { font-size: 0.95rem; letter-spacing: 1px; }
+}
 
 /* Process & Protection Standard */
 .transformation-section { padding: 8rem 0; background: var(--bg-main); }
