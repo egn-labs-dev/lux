@@ -1,15 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Initialize Lenis (Buttery Smooth Scroll)
+    const isLocal = window.location.protocol === 'file:';
     window.lenis = new Lenis({
         duration: 1.5,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: 'vertical',
-        gestureDirection: 'vertical',
         smooth: true,
+        smoothTouch: !isLocal, // Disable on local files to avoid security warnings
         mouseMultiplier: 1,
-        smoothTouch: true, // Optimized for mobile
-        touchMultiplier: 1.5,
-        infinite: false,
     });
 
     function raf(time) {
@@ -18,23 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     requestAnimationFrame(raf);
 
-    // GSAP Integration with Lenis
     gsap.registerPlugin(ScrollTrigger);
-    
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time)=>{
-      lenis.raf(time * 1000);
-    });
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
 
     // Navbar Scroll Effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     // Mobile Menu Logic
@@ -45,8 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleMenu = () => {
         const isActive = mobileToggle.classList.toggle('active');
         mobileMenu.classList.toggle('active');
-        
-        // Update ARIA attributes
         mobileToggle.setAttribute('aria-expanded', isActive);
         mobileMenu.setAttribute('aria-hidden', !isActive);
 
@@ -60,200 +47,195 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     mobileToggle.addEventListener('click', toggleMenu);
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', toggleMenu);
-    });
+    mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
-    // 2. Animations
-    const tl = gsap.timeline();
+    // 2. Modal Data & Logic
+    const modalData = {
+        'case-1': { title: 'Rental Refresh', location: 'Covent Garden, WC2', img: 'assets/lux_covent.png', desc: 'Rapid property refresh delivered in 5 days to minimize void periods for the landlord.' },
+        'case-2': { title: 'Internal Refurb', location: 'Vauxhall, SW8', img: 'assets/lux_drylining.png', desc: 'Full internal refurbishment including drylining and first-fix electrical/plumbing for a modern residential project.' },
+        'case-3': { title: 'Kitchen & Bath Upgrade', location: 'Chelsea, SW3', timescale: '4 Weeks', img: 'assets/lux_chelsea.png', scope: 'High-end renovation of primary kitchen and two bathrooms. Included bespoke cabinetry fitting, marble tiling, and installation of premium brass fixtures.', result: 'Seamless, luxury finish delivered on time for a private client.' },
+        'case-4': { title: 'Full Residential Refurbishment', location: 'Mayfair, W1', timescale: '12 Weeks', img: 'assets/lux_mayfair.png', scope: 'Complete top-to-bottom renovation of a heritage apartment. Structural reconfigurations, ornate cornicing restoration, and full integrated smart home installation.', result: 'Property value increased by approximately 25% post-completion.' },
+        'case-5': { title: 'Commercial Painting', location: 'City of London, EC2', timescale: '2 Weeks', img: 'assets/lux_city.png', scope: 'Night-shift painting and snagging for a 15,000 sq ft office space. Required strict coordination to ensure zero disruption to daytime business operations.', result: 'Flawless finish delivered within the tight handover window.' },
+        'who-landlords': { title: 'Minimize Void Periods', desc: 'We understand that every day your property is vacant, you\'re losing money. Our <strong>Rental Property Refresh</strong> service is designed specifically for high-speed delivery without compromising on quality.', list: ['Rapid end-of-tenancy painting', 'Professional floor and carpet cleaning', 'Minor repairs & snagging', 'Gas & Electrical safety certificates'], btn: 'Get a Fast Quote' },
+        'who-managers': { title: 'Reliable Maintenance Partner', desc: 'Tired of chasing unreliable contractors? We provide a seamless maintenance partnership with full administrative support.', list: ['Full RAMS & Insurance documents provided', 'Detailed photo-reporting of progress', 'Planned preventive maintenance', 'Out-of-hours service available'], btn: 'Partner With Us' },
+        'who-developers': { title: 'The Finishing Phase', desc: 'We specialize in the critical "finishing phase" where quality and attention to detail determine the final property value.', list: ['Specialist drylining & partition teams', 'High-volume painting capacity', 'Snagging liquidation specialists', 'Strict adherence to site safety & deadlines'], btn: 'Discuss Your Project' },
+        'who-homeowners': { title: 'Surgical Home Renovations', desc: 'Transforming your home should be an exciting process, not a stressful one. We bring commercial-grade organization to private renovations.', list: ['Surgical protection of your furniture and floors', 'Transparent, itemized quotes with no surprises', 'Respectful, polite, and tidy site teams', 'Direct communication with project managers'], btn: 'Start Your Journey' },
+        'exp-refurb': { title: 'Full Residential Refurbishment', desc: 'Complete internal restructuring and renovation of high-end residential properties.', list: ['Structural internal wall removal & reconfiguration', 'Full first & second fix electrical and plumbing', 'Heating system installations and upgrades', 'Integrated project management and timeline control'] },
+        'exp-kitchen-bath': { title: 'Bespoke Kitchen & Bath Installations', desc: 'Precision-led installations of kitchens and luxury bathrooms.', list: ['Bespoke kitchen unit and appliance fitting', 'High-end stone and ceramic tiling', 'Wet room construction and waterproofing', 'Professional lighting and fixture installation'] },
+        'exp-painting': { title: 'High-End Internal Finishes', desc: 'Professional finish for high-end residential and commercial properties.', list: ['Airless spray painting for ultra-smooth finishes', 'Specialist wallpaper and wall-covering installation', 'Woodwork and cabinetry painting', 'Rapid rental property refreshes'] },
+        'exp-maintenance': { title: 'Estate Maintenance & Aftercare', desc: 'Ensuring property excellence through ongoing care and rapid defect resolution.', list: ['Rapid-response plumbing and carpentry repairs', 'Snagging liquidation for new developments', 'Planned maintenance for property portfolios', 'End-of-tenancy remedial works'] },
+        'exp-drylining': { title: 'Structural Drylining & Carpentry', desc: 'Structural and decorative woodwork and wall construction.', list: ['Metal and timber stud partition construction', 'Specialist plasterboarding and acoustic lining', 'Bespoke shelving, wardrobes, and cabinetry', 'Skirting, architrave, and door installations'] },
+        'exp-flooring': { title: 'Flooring', desc: 'Expert installation of all internal flooring systems.', list: ['Solid and engineered hardwood installation', 'LVT (Luxury Vinyl Tile) specialist fitting', 'Sub-floor preparation and leveling', 'Skirting board integration and finishing'] }
+    };
 
-    // Hero Sequence: 1. Reveal Background, 2. Reveal Text
-    tl.to('.hero-reveal', {
-        scale: 1,
-        opacity: 1,
-        duration: 1.8,
-        ease: "power3.out"
-    })
-    .fromTo('.split-text', 
-        { y: 100, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" },
-        "-=0.5" // Text starts 500ms after bg reveal begins
-    )
-    .fromTo('.hero .fade-up',
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
-        "-=1.2"
-    );
+    const modalOverlay = document.getElementById('modal-overlay');
+    const dynamicModal = document.getElementById('dynamic-modal');
 
-    // Image Clip-Path Reveals for the rest of the page
-    gsap.utils.toArray('.reveal-img:not(.hero-reveal)').forEach(img => {
-        gsap.to(img, {
-            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-            duration: 1.5,
-            ease: "power4.inOut",
-            scrollTrigger: {
-                trigger: img,
-                start: "top 85%",
-            }
-        });
-    });
+    window.openModal = function(id) {
+        const data = modalData[id];
+        if (!data) return;
 
-    // Standard Fade Ups
-    gsap.utils.toArray('.fade-up:not(.hero .fade-up)').forEach(el => {
-        gsap.to(el, {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: el,
-                start: "top 85%"
-            }
-        });
-    });
-    
-    // Parallax hero image
-    gsap.to('.hero-bg-img', {
-        yPercent: 20,
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: true
-        }
-    });
+        let content = `
+            <span class="close-btn" onclick="closeModals()">&times;</span>
+            <h2>${data.title}</h2>
+            ${data.location ? `<div class="modal-meta"><span><strong>Location:</strong> ${data.location}</span>${data.timescale ? `<span><strong>Timescale:</strong> ${data.timescale}</span>` : ''}</div>` : ''}
+            ${data.img ? `<img src="${data.img}" alt="${data.title}">` : ''}
+            ${data.desc ? `<p>${data.desc}</p>` : ''}
+            ${data.scope ? `<p><strong>Scope:</strong> ${data.scope}</p>` : ''}
+            ${data.result ? `<p><strong>Result:</strong> ${data.result}</p>` : ''}
+            ${data.list ? `<ul>${data.list.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}
+            ${data.btn ? `<a href="#contact-form" class="btn-primary modal-btn" onclick="closeModals()">${data.btn}</a>` : ''}
+            ${id.startsWith('exp-') ? `<a href="#contact-form" class="btn-primary modal-btn" onclick="closeModals()">Request a Proposal</a>` : ''}
+        `;
 
-    // 3. Before/After Slider Interaction
-    const baSlider = document.querySelector('.ba-slider');
-    const baWrapper = document.querySelector('.ba-image-wrapper');
-    const baHandle = document.querySelector('.ba-handle');
-
-    if (baSlider && baWrapper && baHandle) {
-        // Initial state: Set to 80% to show mostly the finished result
-        const initialPos = 80;
-        baWrapper.style.width = `${initialPos}%`;
-        baHandle.style.left = `${initialPos}%`;
-
-        const move = (e) => {
-            let x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-            let rect = baSlider.getBoundingClientRect();
-            let pos = ((x - rect.left) / rect.width) * 100;
-            
-            pos = Math.max(0, Math.min(100, pos));
-            
-            baWrapper.style.width = `${pos}%`;
-            baHandle.style.left = `${pos}%`;
-        };
-
-        const startSliding = () => {
-            baSlider.addEventListener('mousemove', move);
-            baSlider.addEventListener('touchmove', move);
-        };
-
-        const stopSliding = () => {
-            baSlider.removeEventListener('mousemove', move);
-            baSlider.removeEventListener('touchmove', move);
-        };
-
-        baSlider.addEventListener('mousedown', startSliding);
-        baSlider.addEventListener('touchstart', startSliding);
-        window.addEventListener('mouseup', stopSliding);
-        window.addEventListener('touchend', stopSliding);
-        
-        baSlider.addEventListener('click', move);
-    }
-
-// Modal Logic (Global)
-window.openModal = function(modalId) {
-    const overlay = document.getElementById('modal-overlay');
-    const modal = document.getElementById(modalId);
-    
-    if (overlay && modal) {
-        overlay.classList.add('active');
-        modal.classList.add('active');
+        dynamicModal.innerHTML = content;
+        modalOverlay.classList.add('active');
+        dynamicModal.classList.add('active');
         document.documentElement.style.overflow = 'hidden';
-    }
-};
+        if (window.lenis) lenis.stop();
+    };
 
-window.closeModals = function() {
-    const overlay = document.getElementById('modal-overlay');
-    if (overlay) overlay.classList.remove('active');
-    
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.classList.remove('active');
+    window.closeModals = function() {
+        modalOverlay.classList.remove('active');
+        dynamicModal.classList.remove('active');
+        document.documentElement.style.overflow = '';
+        if (window.lenis) lenis.start();
+    };
+
+    modalOverlay.addEventListener('click', (e) => { if(e.target === modalOverlay) closeModals(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModals(); });
+
+    // 3. Editorial Layout Logic
+    const editorialItems = document.querySelectorAll('.editorial-item');
+    const editorialImages = document.querySelectorAll('.editorial-img');
+
+    editorialItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const id = item.getAttribute('data-id');
+            
+            // Update items
+            editorialItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            
+            // Update images
+            editorialImages.forEach(img => {
+                if (img.getAttribute('data-id') === id) {
+                    img.classList.add('active');
+                } else {
+                    img.classList.remove('active');
+                }
+            });
+        });
     });
-    document.documentElement.style.overflow = '';
-};
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModals();
-});
+    // 4. Animations & Interactions
+    const tl = gsap.timeline();
+    tl.to('.hero-reveal', { scale: 1, opacity: 1, duration: 1.8, ease: "power3.out" })
+      .fromTo('.split-text', { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" }, "-=0.5")
+      .fromTo('.hero .fade-up', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, "-=1.2");
 
-    // Magnetic Effect for Buttons (Premium UI - Disabled on touch)
-    const magneticBtns = document.querySelectorAll('.btn-primary, .btn-outline');
+    gsap.utils.toArray('.reveal-img:not(.hero-reveal)').forEach(img => {
+        gsap.to(img, { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', duration: 1.5, ease: "power4.inOut", scrollTrigger: { trigger: img, start: "top 85%" } });
+    });
+
+    gsap.utils.toArray('.fade-up:not(.hero .fade-up)').forEach(el => {
+        gsap.to(el, { y: 0, opacity: 1, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 85%" } });
+    });
+    
+    gsap.to('.hero-bg-img', { yPercent: 20, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+
+    // 5. Bento Card Spotlight & Parallax Effect
     if (window.innerWidth > 1024) {
-        magneticBtns.forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
+        document.querySelectorAll('.bento-card').forEach(card => {
+            const img = card.querySelector('.service-img');
+            
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
                 
-                gsap.to(btn, {
-                    x: x * 0.3,
-                    y: y * 0.3,
-                    duration: 0.4,
+                // Spotlight logic
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+
+                // Parallax logic
+                const px = (x / rect.width) - 0.5;
+                const py = (y / rect.height) - 0.5;
+                
+                gsap.to(img, {
+                    x: px * 30,
+                    y: py * 30,
+                    scale: 1.15,
+                    duration: 0.8,
                     ease: "power2.out"
                 });
             });
             
-            btn.addEventListener('mouseleave', () => {
-                gsap.to(btn, {
+            card.addEventListener('mouseleave', () => {
+                gsap.to(img, {
                     x: 0,
                     y: 0,
-                    duration: 0.6,
-                    ease: "elastic.out(1, 0.3)"
+                    scale: 1,
+                    duration: 1,
+                    ease: "power2.out"
                 });
             });
         });
     }
 
-    // Fix for Local File Protocol Navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.lenis.scrollTo(targetElement, { offset: -80 });
-            }
-        });
-    });
+    // 6. Before/After Slider Interaction
+    const baSlider = document.querySelector('.ba-slider');
+    const baWrapper = document.querySelector('.ba-image-wrapper');
+    const baHandle = document.querySelector('.ba-handle');
+    if (baSlider && baWrapper && baHandle) {
+        const move = (e) => {
+            let x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            let rect = baSlider.getBoundingClientRect();
+            let pos = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
+            baWrapper.style.width = `${pos}%`;
+            baHandle.style.left = `${pos}%`;
+        };
+        baSlider.addEventListener('mousedown', () => { baSlider.addEventListener('mousemove', move); });
+        window.addEventListener('mouseup', () => { baSlider.removeEventListener('mousemove', move); });
+        baSlider.addEventListener('touchstart', () => { baSlider.addEventListener('touchmove', move); });
+        window.addEventListener('touchend', () => { baSlider.removeEventListener('touchmove', move); });
+        baSlider.addEventListener('click', move);
+    }
 
-    // Form Submission Logic
+    // Magnetic Buttons
+    if (window.innerWidth > 1024) {
+        document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                gsap.to(btn, { x: (e.clientX - rect.left - rect.width/2) * 0.3, y: (e.clientY - rect.top - rect.height/2) * 0.3, duration: 0.4, ease: "power2.out" });
+            });
+            btn.addEventListener('mouseleave', () => { gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: "elastic.out(1, 0.3)" }); });
+        });
+    }
+
+    // Form Logic
+
     const contactForm = document.querySelector('.lead-filter-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = contactForm.querySelector('button');
             const originalText = btn.innerText;
-            
-            btn.innerText = 'Sending...';
-            btn.disabled = true;
-
+            btn.innerText = 'Sending...'; btn.disabled = true;
             setTimeout(() => {
-                btn.innerText = 'Proposal Requested ✓';
-                btn.style.background = 'var(--success)';
+                btn.innerText = 'Proposal Requested ✓'; btn.style.background = 'var(--success)';
                 contactForm.reset();
-                
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                }, 3000);
+                setTimeout(() => { btn.innerText = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
             }, 1500);
         });
     }
+
+    // Anchor Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) window.lenis.scrollTo(target, { offset: -80 });
+        });
+    });
 });

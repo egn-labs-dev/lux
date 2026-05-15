@@ -151,9 +151,9 @@
         <div class="hero-content">
             <h1 class="split-text">Residential Refurbishment<br>& Maintenance Contractor in London</h1>
             <p class="fade-up delay-1">We help landlords, homeowners, developers and property managers deliver clean, organised refurbishment works — from rental refreshes to full internal renovations.</p>
-            <div class="hero-btns fade-up delay-2" style="margin-top: 2rem; display: flex; gap: 1rem;">
-                <a href="#contact-form" class="btn-primary" style="padding: 1rem 2rem;">Request an Estimate</a>
-                <a href="#portfolio" class="btn-outline" style="padding: 1rem 2rem; border: 1px solid var(--glass-border); border-radius: 100px; text-decoration: none; color: white; font-weight: 600; font-size: 0.8rem; text-transform: uppercase;">View Cases</a>
+            <div class="hero-btns fade-up delay-2 mt-2 flex-gap-1">
+                <a href="#contact-form" class="btn-primary">Request an Estimate</a>
+                <a href="#portfolio" class="btn-outline">View Cases</a>
             </div>
         </div>
     </header>
@@ -170,153 +170,245 @@
         <div class="section-header fade-up">
             <h2>Who We Help.</h2>
         </div>
-        <div class="bento-grid">
-            <div class="bento-card glass-card who-card fade-up" onclick="openModal('who-landlords')" style="cursor: pointer;">
-                <img src="assets/who_landlords.png" alt="London Landlord Property Refresh" class="service-img" loading="lazy">
-                <div class="service-info">
-                    <h3>Landlords</h3>
-                    <p>Fast-turnaround rental refreshes to minimize void periods and maximize property value.</p>
-                    <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Learn More →</span>
-                </div>
+        <div class="editorial-layout fade-up">
+            <div class="editorial-image-box reveal-img">
+                <img src="assets/who_landlords.png" alt="Landlords" class="editorial-img active" data-id="landlords">
+                <img src="assets/who_managers.png" alt="Managers" class="editorial-img" data-id="managers">
+                <img src="assets/lux_drylining.png" alt="Developers" class="editorial-img" data-id="developers">
+                <img src="assets/lux_hero.png" alt="Homeowners" class="editorial-img" data-id="homeowners">
             </div>
-            <div class="bento-card glass-card who-card fade-up delay-1" onclick="openModal('who-managers')" style="cursor: pointer;">
-                <img src="assets/who_managers.png" alt="London Property Manager Maintenance" class="service-img" loading="lazy">
-                <div class="service-info">
-                    <h3>Property Managers</h3>
-                    <p>Reliable maintenance and snagging services with full compliance (RAMS & Insurance).</p>
-                    <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Learn More →</span>
+            <div class="editorial-nav">
+                <div class="editorial-item active" data-id="landlords" onclick="openModal('who-landlords')">
+                    <span class="editorial-num">01</span>
+                    <div class="editorial-text">
+                        <h3>Minimize Void Periods</h3>
+                        <p>Fast-turnaround rental refreshes to get your property back on the market in days, not weeks.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="bento-card glass-card who-card fade-up delay-2" onclick="openModal('who-developers')" style="cursor: pointer;">
-                <img src="assets/lux_drylining.png" alt="London Residential Developer Finishing" class="service-img" loading="lazy">
-                <div class="service-info">
-                    <h3>Developers</h3>
-                    <p>On-time, within-budget finishing and drylining for residential developments across London.</p>
-                    <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Learn More →</span>
+                <div class="editorial-item" data-id="managers" onclick="openModal('who-managers')">
+                    <span class="editorial-num">02</span>
+                    <div class="editorial-text">
+                        <h3>Reliable Maintenance Partner</h3>
+                        <p>Fully compliant snagging and ongoing care with detailed photo-reporting and RAMS provided.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="bento-card glass-card who-card fade-up delay-3 col-span-2" onclick="openModal('who-homeowners')" style="cursor: pointer;">
-                <img src="assets/lux_hero.png" alt="London Luxury Home Refurbishment" class="service-img" loading="lazy">
-                <div class="service-info">
-                    <h3>Architects & Homeowners</h3>
-                    <p>High-end internal renovations delivered with surgical precision and organized project management.</p>
-                    <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Learn More →</span>
+                <div class="editorial-item" data-id="developers" onclick="openModal('who-developers')">
+                    <span class="editorial-num">03</span>
+                    <div class="editorial-text">
+                        <h3>The Finishing Phase</h3>
+                        <p>Surgical drylining and partition works delivered on-time to secure your completion certificates.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMPLIANCE SECTION -->
-    <section id="compliance" class="compliance-section container fade-up">
-        <div class="glass-card compliance-inner" style="padding: 4rem;">
-            <h2>Contractor Compliance.</h2>
-            <div class="compliance-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem;">
-                <div class="compliance-item">
-                    <span class="icon" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;">✓</span>
-                    <h4>Public Liability</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Fully insured up to £5M.</p>
-                </div>
-                <div class="compliance-item">
-                    <span class="icon" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;">✓</span>
-                    <h4>RAMS Provided</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Full safety documentation.</p>
-                </div>
-                <div class="compliance-item">
-                    <span class="icon" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;">✓</span>
-                    <h4>Waste Removal</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Licensed disposal services.</p>
-                </div>
-                <div class="compliance-item">
-                    <span class="icon" style="color: var(--accent); font-weight: bold; font-size: 1.5rem;">✓</span>
-                    <h4>Variation Control</h4>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Clear reporting & approvals.</p>
+                <div class="editorial-item" data-id="homeowners" onclick="openModal('who-homeowners')">
+                    <span class="editorial-num">04</span>
+                    <div class="editorial-text">
+                        <h3>Surgical Home Renovations</h3>
+                        <p>High-end internal refurbishments delivered with commercial-grade organization and protection.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES BENTO -->
-    <section id="services" class="bento-section">
+    <!-- PROFESSIONAL STANDARDS -->
+    <section id="compliance" class="compliance-official">
+        <div class="container">
+            <div class="section-header fade-up" style="text-align: center;">
+                <p class="cta-small-label">B2B Standards</p>
+                <h2>Professional Standards.</h2>
+            </div>
+            
+            <div class="compliance-card fade-up">
+                <div class="compliance-item">
+                    <div class="seal-icon">£5M</div>
+                    <h4>Fully Insured</h4>
+                    <p>Comprehensive Public Liability Insurance for all projects.</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="seal-icon">SOP</div>
+                    <h4>Health & Safety</h4>
+                    <p>Strict site protocols with RAMS provided as standard.</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="seal-icon">VET</div>
+                    <h4>DBS Checked</h4>
+                    <p>All on-site teams are fully vetted and security cleared.</p>
+                </div>
+                <div class="compliance-item">
+                    <div class="seal-icon">12M</div>
+                    <h4>Work Guarantee</h4>
+                    <p>A full 12-month defect warranty on all workmanship.</p>
+                </div>
+            </div>
+
+            <div class="trust-bar fade-up">
+                <span class="trust-logo">SafeContractor</span>
+                <span class="trust-logo">CHAS</span>
+                <span class="trust-logo">Constructionline</span>
+                <span class="trust-logo">CITB</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR EXPERTISE -->
+    <section id="services" class="bento-section section">
         <div class="container">
             <div class="section-header fade-up">
                 <h2>Our Expertise.</h2>
             </div>
             <div class="bento-grid">
-                <div class="bento-card glass-card fade-up" onclick="openModal('exp-refurb')" style="cursor: pointer;">
-                    <img src="assets/lux_hero.png" alt="Refurbishment" class="service-img">
+                <!-- Full Refurbishment (Asymmetric Span) -->
+                <div class="bento-card fade-up col-span-2 cursor-pointer" onclick="openModal('exp-refurb')">
+                    <div class="service-img-wrapper">
+                        <img src="assets/lux_hero.png" alt="Full Residential Refurbishment" class="service-img">
+                        <div class="service-number">01</div>
+                    </div>
                     <div class="service-info">
-                        <div class="service-icon">01</div>
-                        <h3>Full Refurbishment</h3>
-                        <p>End-to-end residential renovations and internal restructuring.</p>
-                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                        <div>
+                            <div class="service-index">CORE SERVICES</div>
+                            <h3>Full Residential Refurbishment</h3>
+                            <p>End-to-end internal renovations, structural reconfiguration, and high-spec property transformations.</p>
+                        </div>
+                        <div class="card-link-wrapper">
+                            <span>View Full Scope</span>
+                            <div class="card-arrow"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="bento-card glass-card fade-up delay-1" onclick="openModal('exp-kitchen-bath')" style="cursor: pointer;">
-                    <img src="assets/lux_kitchen_bath.png" alt="Kitchens" class="service-img">
+
+                <!-- Kitchens & Bathrooms -->
+                <div class="bento-card fade-up delay-1 cursor-pointer" onclick="openModal('exp-kitchen-bath')">
+                    <div class="service-img-wrapper">
+                        <img src="assets/lux_kitchen_bath.png" alt="Bespoke Kitchen & Bath Installations" class="service-img">
+                        <div class="service-number">02</div>
+                    </div>
                     <div class="service-info">
-                        <div class="service-icon">02</div>
-                        <h3>Kitchens & Bathrooms</h3>
-                        <p>Modern installations delivered with clean, professional plumbing and tiling.</p>
-                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                        <div>
+                            <div class="service-index">SPECIALIST</div>
+                            <h3>Bespoke Kitchen & Bath Installations</h3>
+                            <p>Precision-led plumbing, high-end stone tiling, and luxury fixture fitting.</p>
+                        </div>
+                        <div class="card-link-wrapper">
+                            <span>Details</span>
+                            <div class="card-arrow"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="bento-card glass-card fade-up delay-2" onclick="openModal('exp-painting')" style="cursor: pointer;">
-                    <img src="assets/lux_painting_decorating.png" alt="Painting" class="service-img">
+
+                <!-- High-End Internal Finishes -->
+                <div class="bento-card fade-up delay-2 cursor-pointer" onclick="openModal('exp-painting')">
+                    <div class="service-img-wrapper">
+                        <img src="assets/lux_painting_decorating.png" alt="High-End Internal Finishes" class="service-img">
+                        <div class="service-number">03</div>
+                    </div>
                     <div class="service-info">
-                        <div class="service-icon">03</div>
-                        <h3>Painting & Decorating</h3>
-                        <p>Flawless finishes for high-end properties and rental refreshes.</p>
-                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                        <div>
+                            <div class="service-index">INTERIOR</div>
+                            <h3>High-End Internal Finishes</h3>
+                            <p>Airless spraying, specialist wall-coverings, and professional decorative finishing.</p>
+                        </div>
+                        <div class="card-link-wrapper">
+                            <span>Finishes</span>
+                            <div class="card-arrow"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="bento-card glass-card fade-up delay-3" onclick="openModal('exp-maintenance')" style="cursor: pointer;">
-                    <img src="assets/lux_maintenance.png" alt="Maintenance" class="service-img">
+
+                <!-- Estate Maintenance & Aftercare -->
+                <div class="bento-card fade-up delay-3 cursor-pointer" onclick="openModal('exp-maintenance')">
+                    <div class="service-img-wrapper">
+                        <img src="assets/lux_maintenance.png" alt="Estate Maintenance & Aftercare" class="service-img">
+                        <div class="service-number">04</div>
+                    </div>
                     <div class="service-info">
-                        <div class="service-icon">04</div>
-                        <h3>Maintenance & Snagging</h3>
-                        <p>Ongoing property care and rapid fix-ups between tenancies.</p>
-                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                        <div>
+                            <div class="service-index">MANAGEMENT</div>
+                            <h3>Estate Maintenance & Aftercare</h3>
+                            <p>Proactive care and professional management of high-value property portfolios.</p>
+                        </div>
+                        <div class="card-link-wrapper">
+                            <span>Maintenance</span>
+                            <div class="card-arrow"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="bento-card glass-card fade-up delay-4" onclick="openModal('exp-drylining')" style="cursor: pointer;">
-                    <img src="assets/lux_drylining.png" alt="Drylining" class="service-img">
-                    <div class="service-info">
-                        <div class="service-icon">05</div>
-                        <h3>Drylining & Carpentry</h3>
-                        <p>Surgical precision in wall construction and bespoke woodwork.</p>
-                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+
+                <!-- Drylining & Carpentry -->
+                <div class="bento-card fade-up delay-4 cursor-pointer" onclick="openModal('exp-drylining')">
+                    <div class="service-img-wrapper">
+                        <img src="assets/lux_drylining.png" alt="Structural Drylining & Carpentry" class="service-img">
+                        <div class="service-number">05</div>
                     </div>
-                </div>
-                <div class="bento-card glass-card fade-up delay-5" onclick="openModal('exp-flooring')" style="cursor: pointer;">
-                    <img src="assets/lux_flooring_service.png" alt="Flooring" class="service-img">
                     <div class="service-info">
-                        <div class="service-icon">06</div>
-                        <h3>Flooring</h3>
-                        <p>Hardwood, LVT, and premium tiling installations.</p>
-                        <span class="card-link" style="font-size: 0.7rem; color: var(--accent); margin-top: 1rem; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Scope of Works →</span>
+                        <div>
+                            <div class="service-index">STRUCTURE</div>
+                            <h3>Structural Drylining & Carpentry</h3>
+                            <p>Specialist partitioning, acoustic lining, and architectural woodwork.</p>
+                        </div>
+                        <div class="card-link-wrapper">
+                            <span>Details</span>
+                            <div class="card-arrow"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROCESS SLIDER -->
+    <!-- THE PROTECTION STANDARD -->
     <section id="transformation" class="transformation-section">
         <div class="container">
             <div class="section-header fade-up">
-                <h2>Process & Protection.</h2>
+                <p class="cta-small-label">Site Management</p>
+                <h2>The Protection Standard.</h2>
             </div>
-            <div class="ba-slider-container reveal-img">
-                <div class="ba-slider">
-                    <img src="assets/lux_hero.png" alt="Finished" class="ba-image after">
-                    <div class="ba-image-wrapper">
-                        <img src="assets/lux_protection.png" alt="In Progress" class="ba-image before">
+            
+            <div class="protection-layout">
+                <div class="protection-left">
+                    <div class="ba-slider-container reveal-img fade-up">
+                        <div class="ba-slider">
+                            <!-- AFTER Image -->
+                            <img src="assets/lux_hero.png" alt="Finished Luxury Interior" class="ba-image after">
+                            
+                            <!-- BEFORE / PROGRESS Wrapper -->
+                            <div class="ba-image-wrapper">
+                                <img src="assets/lux_protection.png" alt="Surgical Site Protection" class="ba-image before">
+                            </div>
+
+                            <!-- Refined Handle -->
+                            <div class="ba-handle">
+                                <div class="ba-handle-circle"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ba-handle">
-                        <div class="ba-handle-line"></div>
-                        <div class="ba-handle-circle">
-                            <span class="ba-arrow left"></span>
-                            <span class="ba-arrow right"></span>
+                    
+                    <div class="protection-badges fade-up">
+                        <span class="protection-badge"><span class="badge-dot"></span> Impact Floor Protection</span>
+                        <span class="protection-badge"><span class="badge-dot"></span> Temporary Dust Screens</span>
+                        <span class="protection-badge"><span class="badge-dot"></span> Joinery & Fixture Masking</span>
+                    </div>
+                </div>
+
+                <div class="standards-list fade-up">
+                    <div class="standard-item">
+                        <div class="standard-icon">01</div>
+                        <div class="standard-text">
+                            <h4>Day 1 Protection</h4>
+                            <p>Before a single tool is lifted, we install full protection to communal areas, lifts, and hallways.</p>
+                        </div>
+                    </div>
+                    <div class="standard-item">
+                        <div class="standard-icon">02</div>
+                        <div class="standard-text">
+                            <h4>Daily Clean-Down</h4>
+                            <p>Our sites are vacuumed and organized at the end of every shift. A tidy site is a safe site.</p>
+                        </div>
+                    </div>
+                    <div class="standard-item">
+                        <div class="standard-icon">03</div>
+                        <div class="standard-text">
+                            <h4>Compliance First</h4>
+                            <p>RAMS and Insurance documents are always on-site, with clear signage and safety protocols.</p>
                         </div>
                     </div>
                 </div>
@@ -331,7 +423,7 @@
                 <h2>Case Studies.</h2>
             </div>
             <div class="portfolio-bento">
-                <div class="p-item tall reveal-img" onclick="openModal('case-1')" style="cursor: pointer;">
+                <div class="p-item tall reveal-img cursor-pointer" onclick="openModal('case-1')">
                     <img src="assets/lux_covent.png" alt="2-Bed Rental Refresh in Covent Garden, WC2 - London Lux Refurbishment" loading="lazy">
                     <div class="p-overlay glass">
                         <div>
@@ -341,7 +433,7 @@
                         <span class="p-tag">5 DAYS</span>
                     </div>
                 </div>
-                <div class="p-item wide reveal-img" onclick="openModal('case-2')" style="cursor: pointer;">
+                <div class="p-item wide reveal-img cursor-pointer" onclick="openModal('case-2')">
                     <img src="assets/lux_drylining.png" alt="Internal Drylining & Refurbishment in Vauxhall, SW8 - London Lux Refurbishment" loading="lazy">
                     <div class="p-overlay glass">
                         <div>
@@ -351,7 +443,7 @@
                         <span class="p-tag">3 WEEKS</span>
                     </div>
                 </div>
-                <div class="p-item reveal-img" onclick="openModal('case-3')" style="cursor: pointer;">
+                <div class="p-item reveal-img cursor-pointer" onclick="openModal('case-3')">
                     <img src="assets/lux_chelsea.png" alt="Kitchen & Bathroom Upgrade in Chelsea, SW3 - London Lux Refurbishment" loading="lazy">
                     <div class="p-overlay glass">
                         <div>
@@ -361,7 +453,7 @@
                         <span class="p-tag">4 WEEKS</span>
                     </div>
                 </div>
-                <div class="p-item wide reveal-img" onclick="openModal('case-4')" style="cursor: pointer;">
+                <div class="p-item wide reveal-img cursor-pointer" onclick="openModal('case-4')">
                     <img src="assets/lux_mayfair.png" alt="Full Residential Refurbishment in Mayfair, W1 - London Lux Refurbishment" loading="lazy">
                     <div class="p-overlay glass">
                         <div>
@@ -371,7 +463,7 @@
                         <span class="p-tag">12 WEEKS</span>
                     </div>
                 </div>
-                <div class="p-item reveal-img" onclick="openModal('case-5')" style="cursor: pointer;">
+                <div class="p-item reveal-img cursor-pointer" onclick="openModal('case-5')">
                     <img src="assets/lux_city.png" alt="Commercial Painting in City of London, EC2 - London Lux Refurbishment" loading="lazy">
                     <div class="p-overlay glass">
                         <div>
@@ -451,190 +543,9 @@
     </footer>
 
     <!-- MODALS -->
-    <div class="modal-overlay" id="modal-overlay" onclick="closeModals()"></div>
-
-    <div class="modal glass-card" id="case-1">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Rental Refresh</h2>
-        <p><strong>Location:</strong> Covent Garden, WC2</p>
-        <img src="assets/lux_covent.png" alt="Covent Garden" style="width:100%; border-radius: 12px; margin: 1rem 0;">
-        <p>Rapid property refresh delivered in 5 days to minimize void periods for the landlord.</p>
-    </div>
-
-    <div class="modal glass-card" id="case-2">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Internal Refurb</h2>
-        <p><strong>Location:</strong> Vauxhall, SW8</p>
-        <img src="assets/lux_drylining.png" alt="Vauxhall" style="width:100%; border-radius: 12px; margin: 1rem 0;">
-        <p>Full internal refurbishment including drylining and first-fix electrical/plumbing for a modern residential project.</p>
-    </div>
-
-    <div class="modal glass-card" id="case-3">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Kitchen & Bath Upgrade</h2>
-        <div class="modal-meta">
-            <span><strong>Location:</strong> Chelsea, SW3</span>
-            <span><strong>Timescale:</strong> 4 Weeks</span>
-        </div>
-        <img src="assets/lux_chelsea.png" alt="Chelsea" style="width:100%; border-radius: 12px; margin: 1rem 0;">
-        <p><strong>Scope:</strong> High-end renovation of primary kitchen and two bathrooms. Included bespoke cabinetry fitting, marble tiling, and installation of premium brass fixtures.</p>
-        <p><strong>Result:</strong> Seamless, luxury finish delivered on time for a private client.</p>
-    </div>
-
-    <div class="modal glass-card" id="case-4">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Full Residential Refurbishment</h2>
-        <div class="modal-meta">
-            <span><strong>Location:</strong> Mayfair, W1</span>
-            <span><strong>Timescale:</strong> 12 Weeks</span>
-        </div>
-        <img src="assets/lux_mayfair.png" alt="Mayfair" style="width:100%; border-radius: 12px; margin: 1rem 0;">
-        <p><strong>Scope:</strong> Complete top-to-bottom renovation of a heritage apartment. Structural reconfigurations, ornate cornicing restoration, and full integrated smart home installation.</p>
-        <p><strong>Result:</strong> Property value increased by approximately 25% post-completion.</p>
-    </div>
-
-    <div class="modal glass-card" id="case-5">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Commercial Painting</h2>
-        <div class="modal-meta">
-            <span><strong>Location:</strong> City of London, EC2</span>
-            <span><strong>Timescale:</strong> 2 Weeks</span>
-        </div>
-        <img src="assets/lux_city.png" alt="City of London" style="width:100%; border-radius: 12px; margin: 1rem 0;">
-        <p><strong>Scope:</strong> Night-shift painting and snagging for a 15,000 sq ft office space. Required strict coordination to ensure zero disruption to daytime business operations.</p>
-        <p><strong>Result:</strong> Flawless finish delivered within the tight handover window.</p>
-    </div>
-
-    <!-- WHO WE HELP MODALS -->
-    <div class="modal glass-card" id="who-landlords">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>For Landlords</h2>
-        <p style="margin: 1.5rem 0;">We understand that every day your property is vacant, you're losing money. Our <strong>Rental Property Refresh</strong> service is designed specifically for high-speed delivery without compromising on quality.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">✓ Rapid end-of-tenancy painting</li>
-            <li style="margin-bottom: 0.8rem;">✓ Professional floor and carpet cleaning</li>
-            <li style="margin-bottom: 0.8rem;">✓ Minor repairs & snagging</li>
-            <li style="margin-bottom: 0.8rem;">✓ Gas & Electrical safety certificates</li>
-        </ul>
-        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Get a Fast Quote</a>
-    </div>
-
-    <div class="modal glass-card" id="who-managers">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>For Property Managers</h2>
-        <p style="margin: 1.5rem 0;">Tired of chasing unreliable contractors? We provide a seamless maintenance partnership with full administrative support.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">✓ Full RAMS & Insurance documents provided</li>
-            <li style="margin-bottom: 0.8rem;">✓ Detailed photo-reporting of progress</li>
-            <li style="margin-bottom: 0.8rem;">✓ Planned preventive maintenance</li>
-            <li style="margin-bottom: 0.8rem;">✓ Out-of-hours service available</li>
-        </ul>
-        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Partner With Us</a>
-    </div>
-
-    <div class="modal glass-card" id="who-developers">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>For Developers</h2>
-        <p style="margin: 1.5rem 0;">We specialize in the critical "finishing phase" where quality and attention to detail determine the final property value.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">✓ Specialist drylining & partition teams</li>
-            <li style="margin-bottom: 0.8rem;">✓ High-volume painting capacity</li>
-            <li style="margin-bottom: 0.8rem;">✓ Snagging liquidation specialists</li>
-            <li style="margin-bottom: 0.8rem;">✓ Strict adherence to site safety & deadlines</li>
-        </ul>
-        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Discuss Your Project</a>
-    </div>
-
-    <div class="modal glass-card" id="who-homeowners">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>For Homeowners</h2>
-        <p style="margin: 1.5rem 0;">Transforming your home should be an exciting process, not a stressful one. We bring commercial-grade organization to private renovations.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">✓ Surgical protection of your furniture and floors</li>
-            <li style="margin-bottom: 0.8rem;">✓ Transparent, itemized quotes with no surprises</li>
-            <li style="margin-bottom: 0.8rem;">✓ Respectful, polite, and tidy site teams</li>
-            <li style="margin-bottom: 0.8rem;">✓ Direct communication with project managers</li>
-        </ul>
-        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Start Your Journey</a>
-    </div>
-
-    <!-- EXPERTISE MODALS -->
-    <div class="modal glass-card" id="exp-refurb">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Full Refurbishment</h2>
-        <p style="margin: 1.5rem 0;">Complete internal restructuring and renovation of residential properties.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">✓ Structural internal wall removal & reconfiguration</li>
-            <li style="margin-bottom: 0.8rem;">✓ Full first & second fix electrical and plumbing</li>
-            <li style="margin-bottom: 0.8rem;">✓ Heating system installations and upgrades</li>
-            <li style="margin-bottom: 0.8rem;">✓ Integrated project management and timeline control</li>
-        </ul>
-        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
-    </div>
-
-    <div class="modal glass-card" id="exp-kitchen-bath">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Kitchens & Bathrooms</h2>
-        <p style="margin: 1.5rem 0;">Precision-led installations of kitchens and luxury bathrooms.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">✓ Bespoke kitchen unit and appliance fitting</li>
-            <li style="margin-bottom: 0.8rem;">✓ High-end stone and ceramic tiling</li>
-            <li style="margin-bottom: 0.8rem;">✓ Wet room construction and waterproofing</li>
-            <li style="margin-bottom: 0.8rem;">✓ Professional lighting and fixture installation</li>
-        </ul>
-        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
-    </div>
-
-    <div class="modal glass-card" id="exp-painting">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Painting & Decorating</h2>
-        <p style="margin: 1.5rem 0;">Professional finish for high-end residential and commercial properties.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">✓ Airless spray painting for ultra-smooth finishes</li>
-            <li style="margin-bottom: 0.8rem;">✓ Specialist wallpaper and wall-covering installation</li>
-            <li style="margin-bottom: 0.8rem;">✓ Woodwork and cabinetry painting</li>
-            <li style="margin-bottom: 0.8rem;">✓ Rapid rental property refreshes</li>
-        </ul>
-        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
-    </div>
-
-    <div class="modal glass-card" id="exp-maintenance">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Maintenance & Snagging</h2>
-        <p style="margin: 1.5rem 0;">Ensuring property excellence through ongoing care and rapid defect resolution.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">✓ Rapid-response plumbing and carpentry repairs</li>
-            <li style="margin-bottom: 0.8rem;">✓ Snagging liquidation for new developments</li>
-            <li style="margin-bottom: 0.8rem;">✓ Planned maintenance for property portfolios</li>
-            <li style="margin-bottom: 0.8rem;">✓ End-of-tenancy remedial works</li>
-        </ul>
-        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
-    </div>
-
-    <div class="modal glass-card" id="exp-drylining">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Drylining & Carpentry</h2>
-        <p style="margin: 1.5rem 0;">Structural and decorative woodwork and wall construction.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">✓ Metal and timber stud partition construction</li>
-            <li style="margin-bottom: 0.8rem;">✓ Specialist plasterboarding and acoustic lining</li>
-            <li style="margin-bottom: 0.8rem;">✓ Bespoke shelving, wardrobes, and cabinetry</li>
-            <li style="margin-bottom: 0.8rem;">✓ Skirting, architrave, and door installations</li>
-        </ul>
-        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
-    </div>
-
-    <div class="modal glass-card" id="exp-flooring">
-        <span class="close-btn" onclick="closeModals()">&times;</span>
-        <h2>Flooring</h2>
-        <p style="margin: 1.5rem 0;">Expert installation of all internal flooring systems.</p>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 0.8rem;">✓ Solid and engineered hardwood installation</li>
-            <li style="margin-bottom: 0.8rem;">✓ LVT (Luxury Vinyl Tile) specialist fitting</li>
-            <li style="margin-bottom: 0.8rem;">✓ Sub-floor preparation and leveling</li>
-            <li style="margin-bottom: 0.8rem;">✓ Skirting board integration and finishing</li>
-        </ul>
-        <a href="#contact-form" class="btn-primary" onclick="closeModals()" style="display: inline-block; margin-top: 2rem; text-decoration: none; text-align: center;">Request a Proposal</a>
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal glass-card" id="dynamic-modal">
+        <!-- Content injected via JS -->
     </div>
 
 </body>
