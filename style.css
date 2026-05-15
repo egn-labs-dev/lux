@@ -607,11 +607,22 @@ footer { padding: 10rem 0 4rem; border-top: 1px solid var(--glass-border); }
     font-size: clamp(3rem, 12vw, 12rem); line-height: 0.8; margin-bottom: 4rem; 
     letter-spacing: -5px; color: transparent; -webkit-text-stroke: 1px var(--glass-border); 
     transition: color 0.5s, -webkit-text-stroke 0.5s; text-decoration: none; 
+    display: block;
 }
 .footer-huge-text:hover { color: var(--text-main); -webkit-text-stroke: 1px var(--text-main); }
 .cta-small-label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 1rem; font-weight: 700; }
 .cta-arrow { display: inline-block; font-size: 0.5em; vertical-align: middle; transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1); -webkit-text-stroke: 1px var(--text-main); }
 .footer-huge-text:hover .cta-arrow { transform: translate(10px, -10px); }
+
+@media (max-width: 1024px) {
+    .footer-huge-text {
+        color: var(--text-main);
+        -webkit-text-stroke: 0;
+        letter-spacing: -2px;
+        margin-bottom: 3rem;
+    }
+    footer { padding: 6rem 0 3rem; }
+}
 
 .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
 .footer-link { color: var(--text-main); text-decoration: none; }
