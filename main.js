@@ -181,24 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 6. Before/After Slider Interaction
-    const baSlider = document.querySelector('.ba-slider');
-    const baWrapper = document.querySelector('.ba-image-wrapper');
-    const baHandle = document.querySelector('.ba-handle');
-    if (baSlider && baWrapper && baHandle) {
-        const move = (e) => {
-            let x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-            let rect = baSlider.getBoundingClientRect();
-            let pos = Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100));
-            baWrapper.style.width = `${pos}%`;
-            baHandle.style.left = `${pos}%`;
-        };
-        baSlider.addEventListener('mousedown', () => { baSlider.addEventListener('mousemove', move); });
-        window.addEventListener('mouseup', () => { baSlider.removeEventListener('mousemove', move); });
-        baSlider.addEventListener('touchstart', () => { baSlider.addEventListener('touchmove', move); });
-        window.addEventListener('touchend', () => { baSlider.removeEventListener('touchmove', move); });
-        baSlider.addEventListener('click', move);
-    }
 
     // Magnetic Buttons
     if (window.innerWidth > 1024) {
