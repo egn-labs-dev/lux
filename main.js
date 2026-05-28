@@ -59,13 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         'who-landlords': { title: 'Minimize Void Periods', desc: 'We understand that every day your property is vacant, you\'re losing money. Our <strong>Rental Property Refresh</strong> service is designed specifically for high-speed delivery without compromising on quality.', list: ['Rapid end-of-tenancy painting', 'Professional floor and carpet cleaning', 'Minor repairs & snagging', 'Gas & Electrical safety certificates'], btn: 'Get a Fast Quote' },
         'who-managers': { title: 'Reliable Maintenance Partner', desc: 'Tired of chasing unreliable contractors? We provide a seamless maintenance partnership with full administrative support.', list: ['Full RAMS & Insurance documents provided', 'Detailed photo-reporting of progress', 'Planned preventive maintenance', 'Out-of-hours service available'], btn: 'Partner With Us' },
         'who-developers': { title: 'The Finishing Phase', desc: 'We specialize in the critical "finishing phase" where quality and attention to detail determine the final property value.', list: ['Specialist drylining & partition teams', 'High-volume painting capacity', 'Snagging liquidation specialists', 'Strict adherence to site safety & deadlines'], btn: 'Discuss Your Project' },
-        'who-homeowners': { title: 'Surgical Home Renovations', desc: 'Transforming your home should be an exciting process, not a stressful one. We bring commercial-grade organization to private renovations.', list: ['Surgical protection of your furniture and floors', 'Transparent, itemized quotes with no surprises', 'Respectful, polite, and tidy site teams', 'Direct communication with project managers'], btn: 'Start Your Journey' },
-        'exp-refurb': { title: 'Full Residential Refurbishment', desc: 'Complete internal restructuring and renovation of high-end residential properties.', list: ['Structural internal wall removal & reconfiguration', 'Full first & second fix electrical and plumbing', 'Heating system installations and upgrades', 'Integrated project management and timeline control'] },
-        'exp-kitchen-bath': { title: 'Bespoke Kitchen & Bath Installations', desc: 'Precision-led installations of kitchens and luxury bathrooms.', list: ['Bespoke kitchen unit and appliance fitting', 'High-end stone and ceramic tiling', 'Wet room construction and waterproofing', 'Professional lighting and fixture installation'] },
-        'exp-painting': { title: 'High-End Internal Finishes', desc: 'Professional finish for high-end residential and commercial properties.', list: ['Airless spray painting for ultra-smooth finishes', 'Specialist wallpaper and wall-covering installation', 'Woodwork and cabinetry painting', 'Rapid rental property refreshes'] },
-        'exp-maintenance': { title: 'Estate Maintenance & Aftercare', desc: 'Ensuring property excellence through ongoing care and rapid defect resolution.', list: ['Rapid-response plumbing and carpentry repairs', 'Snagging liquidation for new developments', 'Planned maintenance for property portfolios', 'End-of-tenancy remedial works'] },
-        'exp-drylining': { title: 'Structural Drylining & Carpentry', desc: 'Structural and decorative woodwork and wall construction.', list: ['Metal and timber stud partition construction', 'Specialist plasterboarding and acoustic lining', 'Bespoke shelving, wardrobes, and cabinetry', 'Skirting, architrave, and door installations'] },
-        'exp-flooring': { title: 'Flooring', desc: 'Expert installation of all internal flooring systems.', list: ['Solid and engineered hardwood installation', 'LVT (Luxury Vinyl Tile) specialist fitting', 'Sub-floor preparation and leveling', 'Skirting board integration and finishing'] }
+        'who-homeowners': { title: 'Surgical Home Renovations', desc: 'Transforming your home should be an exciting process, not a stressful one. We bring commercial-grade organization to private renovations.', list: ['Surgical protection of your furniture and floors', 'Transparent, itemized quotes with no surprises', 'Respectful, polite, and tidy site teams', 'Direct communication with project managers'], btn: 'Start Your Journey' }
     };
 
     const modalOverlay = document.getElementById('modal-overlay');
@@ -129,10 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 4. Animations & Interactions
-    const tl = gsap.timeline();
-    tl.to('.hero-reveal', { scale: 1, opacity: 1, duration: 1.8, ease: "power3.out" })
-      .fromTo('.split-text', { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" }, "-=0.5")
-      .fromTo('.hero .fade-up', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, "-=1.2");
+    if (document.querySelector('.hero-reveal')) {
+        const tl = gsap.timeline();
+        tl.to('.hero-reveal', { scale: 1, opacity: 1, duration: 1.8, ease: "power3.out" })
+          .fromTo('.split-text', { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" }, "-=0.5")
+          .fromTo('.hero .fade-up', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, "-=1.2");
+    }
 
     gsap.utils.toArray('.reveal-img:not(.hero-reveal)').forEach(img => {
         gsap.to(img, { clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', duration: 1.5, ease: "power4.inOut", scrollTrigger: { trigger: img, start: "top 85%" } });
@@ -142,7 +138,9 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.to(el, { y: 0, opacity: 1, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 85%" } });
     });
     
-    gsap.to('.hero-bg-img', { yPercent: 20, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+    if (document.querySelector('.hero-bg-img')) {
+        gsap.to('.hero-bg-img', { yPercent: 20, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+    }
 
     // 5. Bento Card Spotlight & Parallax Effect
     if (window.innerWidth > 1024) {

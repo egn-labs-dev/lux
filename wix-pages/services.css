@@ -1,0 +1,145 @@
+/* WIX SERVICES PAGES CSS */
+/* Add this to Wix Global CSS or the specific page CSS */
+
+.wix-service-hero {
+    position: relative;
+    padding: 120px 0 80px;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    overflow: hidden;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+}
+
+.wix-service-hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(200, 160, 90, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.wix-service-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.wix-service-label {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.wix-service-title {
+    font-family: 'Clash Display', sans-serif;
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.wix-service-desc {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.wix-service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 80px;
+    align-items: center;
+}
+
+.wix-service-image-wrapper {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.wix-service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wix-service-image-wrapper:hover .wix-service-image {
+    transform: scale(1.05);
+}
+
+.wix-service-features {
+    list-style: none;
+    padding: 0;
+}
+
+.wix-service-feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.wix-service-feature-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.wix-feature-icon {
+    font-size: 1.5rem;
+    margin-right: 20px;
+    color: var(--accent);
+    background: rgba(200, 160, 90, 0.1);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.wix-feature-text h4 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.25rem;
+    margin: 0 0 8px 0;
+    color: #fff;
+}
+
+.wix-feature-text p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.wix-cta-section {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,0.3));
+}
+
+@media (max-width: 768px) {
+    .wix-service-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
