@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 1.5,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smooth: true,
-        smoothTouch: !isLocal, // Disable on local files to avoid security warnings
+        smoothTouch: false, // Explicitly disable on mobile to prevent jitter and overscroll bugs
         mouseMultiplier: 1,
     });
 
