@@ -1,0 +1,127 @@
+<!-- WIX COMPONENT: Portfolio (Albums) -->
+
+<section class="wix-portfolio-hero">
+    <h1>Our Case Studies</h1>
+    <p>Explore our recent transformations. Click on any category below to view the gallery of our completed projects.</p>
+</section>
+
+<section class="wix-portfolio-container">
+    <div class="wix-album-list">
+        
+        <!-- Album: Full Refurbishment -->
+        <div class="wix-album">
+            <div class="wix-album-header" onclick="toggleAlbum(this)">
+                <h2 class="wix-album-title">Full Residential Refurbishment <span class="wix-album-count">4 Photos</span></h2>
+                <span class="wix-album-icon">▼</span>
+            </div>
+            <div class="wix-album-content">
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/lux_hero.png', 'Mayfair Penthouse - Living Area')">
+                    <img src="/assets/lux_hero.png" alt="Mayfair Penthouse" loading="lazy">
+                </div>
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/lux_covent.png', 'Covent Garden Refresh - Master Bedroom')">
+                    <img src="/assets/lux_covent.png" alt="Covent Garden" loading="lazy">
+                </div>
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/lux_mayfair.png', 'Mayfair Apartment - Custom Integration')">
+                    <img src="/assets/lux_mayfair.png" alt="Mayfair Refurb" loading="lazy">
+                </div>
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/lux_protection.png', 'Site Protection Standard')">
+                    <img src="/assets/lux_protection.png" alt="Site Protection" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <!-- Album: Kitchen & Bathrooms -->
+        <div class="wix-album">
+            <div class="wix-album-header" onclick="toggleAlbum(this)">
+                <h2 class="wix-album-title">Bespoke Kitchen & Baths <span class="wix-album-count">3 Photos</span></h2>
+                <span class="wix-album-icon">▼</span>
+            </div>
+            <div class="wix-album-content">
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/lux_kitchen_bath.png', 'Luxury Kitchen Fitting')">
+                    <img src="/assets/lux_kitchen_bath.png" alt="Kitchen" loading="lazy">
+                </div>
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/lux_chelsea.png', 'Chelsea Bathroom Upgrade')">
+                    <img src="/assets/lux_chelsea.png" alt="Bathroom" loading="lazy">
+                </div>
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/lux_hero.png', 'Kitchen Overview')">
+                    <img src="/assets/lux_hero.png" alt="Kitchen Overview" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <!-- Album: High-End Painting -->
+        <div class="wix-album">
+            <div class="wix-album-header" onclick="toggleAlbum(this)">
+                <h2 class="wix-album-title">High-End Painting & Decorating <span class="wix-album-count">2 Photos</span></h2>
+                <span class="wix-album-icon">▼</span>
+            </div>
+            <div class="wix-album-content">
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/lux_painting_decorating.png', 'Specialist Wall-coverings')">
+                    <img src="/assets/lux_painting_decorating.png" alt="Painting" loading="lazy">
+                </div>
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/lux_city.png', 'Commercial Office Painting')">
+                    <img src="/assets/lux_city.png" alt="Commercial Painting" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <!-- Album: Drylining -->
+        <div class="wix-album">
+            <div class="wix-album-header" onclick="toggleAlbum(this)">
+                <h2 class="wix-album-title">Structural Drylining <span class="wix-album-count">2 Photos</span></h2>
+                <span class="wix-album-icon">▼</span>
+            </div>
+            <div class="wix-album-content">
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/lux_drylining.png', 'Metal Stud Partitioning')">
+                    <img src="/assets/lux_drylining.png" alt="Drylining" loading="lazy">
+                </div>
+                <div class="wix-photo-wrapper" onclick="openLightbox('/assets/who_managers.png', 'Acoustic Ceiling Installation')">
+                    <img src="/assets/who_managers.png" alt="Ceiling" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="wix-lightbox" id="portfolio-lightbox" onclick="closeLightbox(event)">
+    <button class="wix-lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    <img src="" alt="" class="wix-lightbox-img" id="lightbox-img">
+    <div class="wix-lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+    // Toggle Accordion Album
+    function toggleAlbum(element) {
+        const album = element.parentElement;
+        
+        // Close others (Optional, if you only want one open at a time)
+        // document.querySelectorAll('.wix-album').forEach(a => {
+        //     if (a !== album) a.classList.remove('active');
+        // });
+
+        album.classList.toggle('active');
+    }
+
+    // Lightbox Logic
+    const lightbox = document.getElementById('portfolio-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    function openLightbox(imgSrc, captionText) {
+        lightboxImg.src = imgSrc;
+        lightboxCaption.innerText = captionText || '';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // prevent background scrolling
+    }
+
+    function closeLightbox(e) {
+        // Close if clicked on background or close button, not on image itself
+        if (e.target === lightbox || e.target.classList.contains('wix-lightbox-close')) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => { lightboxImg.src = ''; }, 300); // clear after fade out
+        }
+    }
+</script>

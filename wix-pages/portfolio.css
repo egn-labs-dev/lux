@@ -1,0 +1,193 @@
+/* WIX PORTFOLIO CSS - Mobile First Design */
+
+.wix-portfolio-hero {
+    padding: 100px 20px 40px;
+    background: var(--bg-dark);
+    text-align: center;
+}
+
+.wix-portfolio-hero h1 {
+    font-family: 'Clash Display', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 16px;
+}
+
+.wix-portfolio-hero p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.wix-portfolio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+}
+
+/* Albums List */
+.wix-album-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.wix-album {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: background 0.3s ease;
+}
+
+.wix-album.active {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--accent);
+}
+
+.wix-album-header {
+    padding: 24px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    /* Large touch target for mobile */
+    min-height: 80px;
+}
+
+.wix-album-title {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wix-album-count {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-family: 'Inter', sans-serif;
+}
+
+.wix-album-icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    transition: transform 0.3s ease;
+}
+
+.wix-album.active .wix-album-icon {
+    transform: rotate(180deg);
+}
+
+/* Album Content (Grid of Photos) */
+.wix-album-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 20px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, opacity 0.3s ease;
+}
+
+.wix-album.active .wix-album-content {
+    max-height: 2000px; /* Arbitrary large value */
+    padding: 0 20px 24px;
+    opacity: 1;
+}
+
+.wix-photo-wrapper {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+}
+
+.wix-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.wix-photo-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* Lightbox Styles */
+.wix-lightbox {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.wix-lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.wix-lightbox-img {
+    max-width: 95vw;
+    max-height: 85vh;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.wix-lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    line-height: 1;
+}
+
+.wix-lightbox-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    right: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Desktop Enhancements */
+@media (min-width: 768px) {
+    .wix-album-content {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .wix-album-header {
+        padding: 30px;
+    }
+    .wix-album-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .wix-album-content {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
